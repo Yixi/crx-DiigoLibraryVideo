@@ -56,7 +56,9 @@ D_V={
 				this.Youku(array[i],link);
 			}else if(link.indexOf("youtube.com")>=0){
 				this.YouTube(array[i],link);
-			}
+			}else if(link.indexOf("tudou.com")>=0){
+                this.Tudou(array[i],link);
+            }
 		};
 	},
 
@@ -79,6 +81,15 @@ D_V={
 			this.insertVedio(element,insertHTML);
 		}
 	},
+
+    Tudou:function(element,link){
+        var match = link.match(/\/view\/(.*?)\//);
+        if(match[1]!=undefined){
+            var vedioid = match[1];
+            var insertHTML = '<embed src="http://player.opengg.me/td.php/v/'+vedioid+'/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></embed>';
+            this.insertVedio(element,insertHTML);
+        }
+    },
 
 	insertVedio:function(element,html){
 		Util.debug($(element),html);

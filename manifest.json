@@ -1,6 +1,6 @@
 {
 "name": "DiigoLibrary",
-"version": "0.1",
+"version": "0.2",
 "manifest_version":2,
 "description": "let diigo library to show the vedio",
 "minimum_chrome_version" : "6.0",
