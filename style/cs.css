@@ -2,3 +2,9 @@
 .diigoVedio_vedioframe{
 	margin: 10px 10px 10px 70px;
 }
+.ditemItem .ditemTitle .bookmarkTitle a{
+    background-repeat:no-repeat ;
+    background-position-y:4px;
+    padding-left: 20px;
+
+}

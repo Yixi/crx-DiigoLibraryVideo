@@ -104,7 +104,36 @@ D_V={
 
 }
 
+var LibraryExtend = {
+    init:function(){
+        this.insertFavicon();
+    },
+    insertFavicon:function(){
+        var BookmarkTitleLinksInner = $('.ditemItem .ditemTitle .bookmarkTitle a');
+        Util.debug(BookmarkTitleLinksInner);
+        for(var i =0 ,len=BookmarkTitleLinksInner.length;i<len;i++){
+            var link = BookmarkTitleLinksInner[i]
+            if(link.previousElementSibling && link.previousElementSibling.className == 'noteIcon') {
+                $(link).css("padding-left","0");
+                continue;
+            }
+            var href = link.href;
+            Util.debug(href);
+            var regex = /.*\:\/\/([^\/]*).*/;
+            var match = href.match(regex);
+            if(typeof match != "undefined" && null != match)  var host= match[1];
+            if(host){
+                var faviconUrl = "https://www.google.com/s2/favicons?domain=" + host;
+                $(link).css({
+                    "background-image":"url("+faviconUrl+")"
+                });
+            }
+        }
+    }
+}
+
 
 
 
 D_V.init();
+LibraryExtend.init();
